@@ -1,17 +1,38 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
+  <ion-toolbar color="dark"> 
+    <ion-title style="font-weight: bold; letter-spacing: 1px;">
+      TECH STORE <ion-icon name="cart-outline"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" color="light">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" *ngFor="let p of productos">
+        
+        <ion-card style="border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+          <div style="position: relative;">
+            <img [src]="p.foto" style="height: 220px; width: 100%; object-fit: cover;" />
+            <ion-badge color="success" style="position: absolute; top: 10px; right: 10px; font-size: 16px; padding: 8px;">
+              {{ p.precio }} €
+            </ion-badge>
+          </div>
+          
+          <ion-card-header>
+            <ion-card-title style="font-size: 1.2rem; font-weight: 700;">{{ p.nombre }}</ion-card-title>
+            <ion-card-subtitle>Envío gratis 🚚</ion-card-subtitle>
+          </ion-card-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+          <ion-card-content>
+            <ion-button fill="solid" expand="block" color="primary" style="margin-top: 5px; font-weight: bold;" (click)="agregarAlCarrito(p)">
+              <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+              Añadir al Carrito
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
