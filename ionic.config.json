@@ -1,0 +1,7 @@
+{
+  "name": "EShopLite",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
